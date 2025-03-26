@@ -1,32 +1,32 @@
 abstract class ApiService {
-  Future<void> addToFavorites(int productId);
-  Future<void> removeFromFavorites(int productId);
-  Future<List<int>> getFavoriteIds();
+  Future<void> addToFavorites(String productId);
+  Future<void> removeFromFavorites(String productId);
+  Future<List<String>> getFavoriteIds();
 }
 
 // Create a mock implementation for testing
 class MockApiService implements ApiService {
   // Simulate a database/storage
-  final Set<int> _favoriteIds = {};
+  final Set<String> _favoriteIds = {};
 
 
   @override
-  Future<void> addToFavorites(int productId) async {
+  Future<void> addToFavorites(String productId) async {
     _favoriteIds.add(productId);
   }
 
   @override
-  Future<void> removeFromFavorites(int productId) async {
+  Future<void> removeFromFavorites(String productId) async {
     _favoriteIds.remove(productId);
   }
 
   @override
-  Future<List<int>> getFavoriteIds() async {
+  Future<List<String>> getFavoriteIds() async {
     return _favoriteIds.toList();
   }
 
   // Helper method to check if a product is favorited
-  Future<bool> isFavorite(int productId) async {
+  Future<bool> isFavorite(String productId) async {
     return _favoriteIds.contains(productId);
   }
 

@@ -1,7 +1,7 @@
 import 'package:work_1/api_service.dart';
 import 'package:work_1/product_card/PC_SM/PC_State.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'PC_event.dart';
+import 'PC_Event.dart';
 
 class ProductCardBloc extends Bloc<ProductCardEvent, ProductCardState> {
   final ApiService apiService;

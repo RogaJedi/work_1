@@ -24,35 +24,35 @@ class MyApp extends StatelessWidget {
 
 List<Product> products = [
   Product(
-      productId: 0,
+      productId: "0",
       name: "Салат",
       price: 560,
       image: "https://cdn.loveandlemons.com/wp-content/uploads/2024/12/caesar-salad.jpg",
       reviewScore: 4.9
   ),
   Product(
-      productId: 1,
+      productId: "1",
       name: "Суп",
       price: 490,
       image: "https://cdn.loveandlemons.com/wp-content/uploads/2023/01/tomato-soup-recipe.jpg",
       reviewScore: 4.2
   ),
   Product(
-      productId: 2,
+      productId: "2",
       name: "Газировка",
       price: 180,
       image: "https://media.istockphoto.com/id/1393991948/ru/фото/кола-с-измельченным-льдом-в-стекле-и-каплями-воды-вокруг-холодный-черный-свежий-напиток.jpg?s=612x612&w=0&k=20&c=zw1iOSozCZ0-PW_mYtJWPDzBBWYUdk-YzeIOF10NDXo=",
       reviewScore: 5.0
   ),
   Product(
-      productId: 3,
+      productId: "3",
       name: "Курица",
       price: 670,
       image: "https://static01.nyt.com/images/2024/01/05/multimedia/MC-Peruvian-Roast-Chicken-ztlg/MC-Peruvian-Roast-Chicken-ztlg-mediumSquareAt3X.jpg",
       reviewScore: 4.6
   ),
   Product(
-      productId: 4,
+      productId: "4",
       name: "Жареный лосось с овощами",
       price: 890,
       image: "https://mealpractice.b-cdn.net/129286207963271168/grilled-salmon-with-roasted-vegetables-and-quinoa-MRYW9u3TAG.webp",

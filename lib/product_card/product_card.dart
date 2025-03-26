@@ -5,7 +5,7 @@ import 'package:work_1/product.dart';
 import 'package:work_1/product_card/PC_SM/PC_Bloc.dart';
 import 'package:work_1/product_card/PC_SM/PC_State.dart';
 
-import 'PC_SM/PC_event.dart';
+import 'PC_SM/PC_Event.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;
