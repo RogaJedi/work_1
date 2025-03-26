@@ -1,0 +1,2 @@
+C:/Users/HYPERPC/StudioProjects/work_1/android/app/.cxx/Debug/3e3p6b4u/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/HYPERPC/StudioProjects/work_1/android/app/.cxx/Debug/3e3p6b4u/arm64-v8a/CMakeFiles/rebuild_cache.dir
