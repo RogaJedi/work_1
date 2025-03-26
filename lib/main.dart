@@ -92,6 +92,7 @@ class MyHomePage extends StatelessWidget {
                       child: ProductCarousel(
                         products: products,
                         apiService: apiService,
+                        onCardTap: () => print("card tapped"),
                       ),
                     )
                   ],

@@ -6,11 +6,13 @@ import '../product_card/product_card.dart';
 class ProductCarousel extends StatelessWidget {
   final List<Product> products;
   final ApiService apiService;
+  final Function() onCardTap;
 
   const ProductCarousel({
     super.key,
     required this.products,
     required this.apiService,
+    required this.onCardTap
   });
 
   @override
@@ -27,7 +29,7 @@ class ProductCarousel extends StatelessWidget {
             child: ProductCard(
               product: products[index],
               apiService: apiService,
-              onCardTap: () => print("Product ${products[index].productId} tapped"),
+              onCardTap: onCardTap,
             ),
           ),
         );
