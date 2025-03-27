@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:work_1/api_service.dart';
+import 'package:work_1/big_card/big_card.dart';
 import 'package:work_1/buttons/cancel.dart';
 import 'package:work_1/buttons/confirm.dart';
 import 'package:work_1/product.dart';
@@ -15,9 +17,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: MyHomePage(),
+    return ScreenUtilInit(
+        designSize: const Size(412, 924),
+        builder: (context, child) {
+          return const MaterialApp(
+            debugShowCheckedModeBanner: false,
+            home: MyHomePage(),
+          );
+        }
     );
   }
 }
@@ -79,14 +86,21 @@ class MyHomePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     //Cancel(color: Color(0xFF000118), text: "Отмена"),
+
                     //Confirm(color: Color(0xFF6E66FE), text: "Подтвердить"),
+
+
                     /*
                     ProductCard(
                       product: products[4],
                       apiService: apiService,
                       onCardTap: () => print("card tapped"),
                     )
+
                      */
+
+
+                    /*
                     SizedBox(
                       height: 300,
                       child: ProductCarousel(
@@ -95,6 +109,8 @@ class MyHomePage extends StatelessWidget {
                         onCardTap: () => print("card tapped"),
                       ),
                     )
+                     */
+                    BigCard(product: products[4], onCardTap: () => print("card tapped"))
                   ],
                 )
             )
