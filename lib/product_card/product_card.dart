@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:work_1/api_service.dart';
 import 'package:work_1/product.dart';
 import 'package:work_1/product_card/PC_SM/PC_Bloc.dart';
@@ -29,8 +28,8 @@ class ProductCard extends StatelessWidget {
         child: GestureDetector(
           onTap: onCardTap,
           child: Container(
-            width: 200.w,
-            height: 190.h,
+            width: 200,
+            height: 190,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               color: Colors.white,
@@ -46,7 +45,7 @@ class ProductCard extends StatelessWidget {
                       ),
                       child: Image.network(
                         product.image,
-                        height: 120.h,
+                        height: 120,
                         width: double.infinity,
                         fit: BoxFit.cover,
                       ),

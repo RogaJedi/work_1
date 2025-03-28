@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:work_1/api_service.dart';
 import 'package:work_1/big_card/big_card.dart';
 import 'package:work_1/buttons/cancel.dart';
@@ -17,14 +16,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-        designSize: const Size(412, 924),
-        builder: (context, child) {
-          return const MaterialApp(
-            debugShowCheckedModeBanner: false,
-            home: MyHomePage(),
-          );
-        }
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: MyHomePage(),
     );
   }
 }
@@ -85,10 +79,13 @@ class MyHomePage extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    //Cancel(color: Color(0xFF000118), text: "Отмена"),
-
-                    //Confirm(color: Color(0xFF6E66FE), text: "Подтвердить"),
-
+                    Column(
+                      children: [
+                        Cancel(color: Color(0xFF000118), text: "Отмена", onPressed: () => print("button pressed"),),
+                        SizedBox(height: 10,),
+                        Confirm(color: Color(0xFF6E66FE), text: "Подтвердить", onPressed: () => print("button pressed"),),
+                      ],
+                    )
 
                     /*
                     ProductCard(
@@ -110,7 +107,7 @@ class MyHomePage extends StatelessWidget {
                       ),
                     )
                      */
-                    BigCard(product: products[4], onCardTap: () => print("card tapped"))
+                    //BigCard(product: products[4], onCardTap: () => print("card tapped"))
                   ],
                 )
             )

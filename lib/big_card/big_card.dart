@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:work_1/product.dart';
 
 class BigCard extends StatelessWidget {
@@ -45,20 +44,20 @@ class BigCard extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      SizedBox(width: 20,),
+                      const SizedBox(width: 20,),
                       SizedBox(
-                          width: 350.w,
-                          height: 45.h,
+                          width: 350,
+                          height: 45,
                           child: Text(
                               product.name,
-                            style: TextStyle(
-                              fontSize: 20.sp
+                            style: const TextStyle(
+                              fontSize: 20
                             ),
                           )
                       ),
                     ],
                   ),
-                  SizedBox(height: 2,),
+                  const SizedBox(height: 2,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -66,8 +65,8 @@ class BigCard extends StatelessWidget {
                         padding: const EdgeInsets.only(left: 20),
                         child: Text(
                             "${product.price} P",
-                          style: TextStyle(
-                              fontSize: 20.sp
+                          style: const TextStyle(
+                              fontSize: 20
                           ),
                         ),
                       ),
@@ -75,11 +74,11 @@ class BigCard extends StatelessWidget {
                           padding: const EdgeInsets.only(right: 20),
                           child: Row(
                             children: [
-                              Icon(Icons.star, color: Color(0xFFf1c232), size: 22.sp,),
+                              const Icon(Icons.star, color: Color(0xFFf1c232), size: 22,),
                               Text(
                                   "${product.reviewScore}",
-                                style: TextStyle(
-                                    fontSize: 20.sp
+                                style: const TextStyle(
+                                    fontSize: 20
                                 ),
                               ),
                             ],
@@ -87,7 +86,7 @@ class BigCard extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 4,)
+                  const SizedBox(height: 4,)
                 ],
               )
             ],
