@@ -61,6 +61,8 @@ List<Product> products = [
   ),
 ];
 
+//https://interiordesign.net/wp-content/uploads/2024/04/InteriorDesign_March2024_Brave-New-World-11.jpg
+
 final apiService = MockApiService();
 
 
@@ -79,6 +81,7 @@ class MyHomePage extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    /*
                     Column(
                       children: [
                         Cancel(color: Color(0xFF000118), text: "Отмена", onPressed: () => print("button pressed"),),
@@ -86,6 +89,8 @@ class MyHomePage extends StatelessWidget {
                         Confirm(color: Color(0xFF6E66FE), text: "Подтвердить", onPressed: () => print("button pressed"),),
                       ],
                     )
+
+                     */
 
                     /*
                     ProductCard(
@@ -107,7 +112,13 @@ class MyHomePage extends StatelessWidget {
                       ),
                     )
                      */
-                    //BigCard(product: products[4], onCardTap: () => print("card tapped"))
+
+                    BigCard(
+                      picture: "https://interiordesign.net/wp-content/uploads/2024/04/InteriorDesign_March2024_Brave-New-World-11.jpg",
+                      onCardTap: () => print("card tapped"),
+                      mainText: "Забронируйте у нас столик",
+                      subText: "Мы будем рады видеть вас в нашем ресторане в любой удобный день",
+                    )
                   ],
                 )
             )

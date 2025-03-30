@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:work_1/product.dart';
 
 class BigCard extends StatelessWidget {
-  final Product product;
+  final String picture;
+  final String mainText;
+  final String subText;
   final Function() onCardTap;
 
   const BigCard({
     super.key,
-    required this.product,
+    required this.picture,
+    required this.mainText,
+    required this.subText,
     required this.onCardTap
   });
 
@@ -19,78 +23,68 @@ class BigCard extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Container(
           width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.width,
+          height: 150,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
-            color: Colors.white,
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Stack(
             children: [
               ClipRRect(
                 borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(15),
                   topRight: Radius.circular(15),
+                  bottomLeft: Radius.circular(15),
+                  bottomRight: Radius.circular(15),
                 ),
                 child: Image.network(
-                  product.image,
-                  height: MediaQuery.of(context).size.width * 0.7,
+                  picture,
                   width: double.infinity,
                   fit: BoxFit.cover,
                 ),
               ),
-              Column(
-                children: [
-                  Row(
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  gradient: LinearGradient(
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                    colors: [
+                      Colors.black.withValues(alpha: 0.65),
+                      Colors.black.withValues(alpha: 0.0),
+                    ],
+                    stops: const [0.65, 1],
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: SizedBox(
+                  height: 130,
+                  width: 260,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      const SizedBox(width: 20,),
-                      SizedBox(
-                          width: 350,
-                          height: 45,
-                          child: Text(
-                              product.name,
-                            style: const TextStyle(
-                              fontSize: 20
-                            ),
-                          )
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 2,),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 20),
-                        child: Text(
-                            "${product.price} P",
-                          style: const TextStyle(
-                              fontSize: 20
-                          ),
+                      Text(
+                        mainText,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Padding(
-                          padding: const EdgeInsets.only(right: 20),
-                          child: Row(
-                            children: [
-                              const Icon(Icons.star, color: Color(0xFFf1c232), size: 22,),
-                              Text(
-                                  "${product.reviewScore}",
-                                style: const TextStyle(
-                                    fontSize: 20
-                                ),
-                              ),
-                            ],
-                          )
-                      ),
+                      Text(
+                        subText,
+                        style: const TextStyle(
+                          color: Colors.white,
+                        ),
+                      )
                     ],
                   ),
-                  const SizedBox(height: 4,)
-                ],
+                ),
               )
             ],
-          ),
+          )
         ),
       ),
     );
