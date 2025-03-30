@@ -16,9 +16,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MyHomePage(),
+      theme: ThemeData(
+        fontFamily: 'Roboto'
+      ),
+      home: const MyHomePage(),
     );
   }
 }
@@ -92,14 +95,16 @@ class MyHomePage extends StatelessWidget {
 
                      */
 
-                    /*
+
+
+
                     ProductCard(
                       product: products[4],
                       apiService: apiService,
                       onCardTap: () => print("card tapped"),
                     )
 
-                     */
+
 
 
                     /*
@@ -113,12 +118,15 @@ class MyHomePage extends StatelessWidget {
                     )
                      */
 
+                    /*
                     BigCard(
                       picture: "https://interiordesign.net/wp-content/uploads/2024/04/InteriorDesign_March2024_Brave-New-World-11.jpg",
                       onCardTap: () => print("card tapped"),
                       mainText: "Забронируйте у нас столик",
                       subText: "Мы будем рады видеть вас в нашем ресторане в любой удобный день",
                     )
+
+                     */
                   ],
                 )
             )

@@ -21,6 +21,10 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return BlocProvider(
         create: (context) => ProductCardBloc(
           apiService: apiService,
@@ -28,8 +32,8 @@ class ProductCard extends StatelessWidget {
         child: GestureDetector(
           onTap: onCardTap,
           child: Container(
-            width: 200,
-            height: 190,
+            width: screenWidth * 0.5,
+            height: screenHeight * 0.205,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               color: Colors.white,
@@ -37,6 +41,8 @@ class ProductCard extends StatelessWidget {
             child: Stack(
               children: [
                 Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     ClipRRect(
                       borderRadius: const BorderRadius.only(
@@ -45,37 +51,56 @@ class ProductCard extends StatelessWidget {
                       ),
                       child: Image.network(
                         product.image,
-                        height: 120,
+                        height: screenHeight * 0.13,
                         width: double.infinity,
                         fit: BoxFit.cover,
                       ),
                     ),
                     SizedBox(height: 2,),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        SizedBox(width: 20,),
-                        SizedBox(
-                            width: 160,
-                            height: 40,
-                            child: Text(product.name)
+                    //160-40
+                    Padding(
+                      padding: EdgeInsets.only(left: screenWidth * 0.045, right: screenWidth * 0.045),
+                      child: SizedBox(
+                        height: screenHeight * 0.045,
+                        child: FittedBox(
+                          fit: BoxFit.scaleDown,
+                          alignment: Alignment.centerLeft,
+                          child: Container(
+                            width: MediaQuery.of(context).size.width - screenWidth * 0.09, // Account for padding
+                            child: Text(
+                              product.name,
+                              style: const TextStyle(fontSize: 40),
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
                         ),
-                      ],
+                      ),
                     ),
                     SizedBox(height: 2,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(left: 20),
-                          child: Text("${product.price} P"),
+                          padding: EdgeInsets.only(left: screenWidth * 0.045),
+                          child: Text(
+                              "${product.price} P",
+                            style: TextStyle(
+                              fontSize: screenWidth * 0.03,
+                            ),
+                          ),
                         ),
                         Padding(
-                            padding: const EdgeInsets.only(right: 20),
+                            padding: EdgeInsets.only(right: screenWidth * 0.045),
                             child: Row(
                               children: [
-                                Icon(Icons.star, color: Color(0xFFf1c232), size: 15,),
-                                Text("${product.reviewScore}"),
+                                Icon(Icons.star, color: Color(0xFFf1c232), size: screenWidth * 0.037,),
+                                Text(
+                                    "${product.reviewScore}",
+                                  style: TextStyle(
+                                    fontSize: screenWidth * 0.03,
+                                  ),
+                                ),
                               ],
                             )
                         ),

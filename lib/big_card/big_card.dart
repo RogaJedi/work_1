@@ -16,8 +16,10 @@ class BigCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
+
     return LayoutBuilder(
         builder: (context, constraints) {
           return GestureDetector(
@@ -72,7 +74,7 @@ class BigCard extends StatelessWidget {
                                   style: const TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 40,  // maximum size
+                                    fontSize: 40,
                                   ),
                                   maxLines: 2,
                                   overflow: TextOverflow.ellipsis,
