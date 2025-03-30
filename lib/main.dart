@@ -61,7 +61,7 @@ List<Product> products = [
   ),
 ];
 
-//https://interiordesign.net/wp-content/uploads/2024/04/InteriorDesign_March2024_Brave-New-World-11.jpg
+
 
 final apiService = MockApiService();
 
