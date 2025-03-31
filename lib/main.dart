@@ -3,9 +3,12 @@ import 'package:work_1/api_service.dart';
 import 'package:work_1/big_card/big_card.dart';
 import 'package:work_1/buttons/cancel.dart';
 import 'package:work_1/buttons/confirm.dart';
+import 'package:work_1/custom_bottom_bar/custom_bottom_bar.dart';
 import 'package:work_1/product.dart';
 import 'package:work_1/product_card/product_card.dart';
 import 'package:work_1/product_carousel/product_carousel.dart';
+
+
 
 void main() {
   runApp(const MyApp());
@@ -16,12 +19,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        fontFamily: 'Roboto'
-      ),
-      home: const MyHomePage(),
+      home: MyHomePage(),
     );
   }
 }
@@ -64,6 +64,12 @@ List<Product> products = [
   ),
 ];
 
+List<Color> colors = [
+  Color(0xFF000118),
+  Color(0xFFC8CDFF),
+  Color(0xFF4B48AC),
+  Color(0xFF6E66FE),
+];
 
 
 final apiService = MockApiService();
@@ -78,13 +84,13 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFEEEEEE),
-        body: Stack(
-          children: [
-            Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    /*
+      body: Stack(
+        children: [
+          Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  /*
                     Column(
                       children: [
                         Cancel(color: Color(0xFF000118), text: "Отмена", onPressed: () => print("button pressed"),),
@@ -92,45 +98,55 @@ class MyHomePage extends StatelessWidget {
                         Confirm(color: Color(0xFF6E66FE), text: "Подтвердить", onPressed: () => print("button pressed"),),
                       ],
                     )
-
                      */
 
-
-
-                    /*
+                  /*
                     ProductCard(
                       product: products[0],
                       apiService: apiService,
                       onCardTap: () => print("card tapped"),
                     )
-
                      */
 
-
-                    SizedBox(
-                      height: 300,
-                      child: ProductCarousel(
-                        products: products,
-                        apiService: apiService,
-                        onCardTap: () => print("card tapped"),
-                      ),
+                  /*
+                    ProductCarousel(
+                      products: products,
+                      apiService: apiService,
+                      onCardTap: () => print("card tapped"),
                     )
+                     */
 
-
-                    /*
+                  /*
                     BigCard(
                       picture: "https://interiordesign.net/wp-content/uploads/2024/04/InteriorDesign_March2024_Brave-New-World-11.jpg",
                       onCardTap: () => print("card tapped"),
                       mainText: "Забронируйте у нас столик",
                       subText: "Мы будем рады видеть вас в нашем ресторане в любой удобный день",
                     )
-
                      */
-                  ],
-                )
-            )
-          ],
-        )
+
+
+
+
+                ],
+              )
+          )
+        ],
+      ),
+      bottomNavigationBar: CustomBottomBar(
+        icons: const [
+          Icons.home,
+          Icons.search,
+          Icons.favorite,
+          Icons.person,
+        ],
+        onPressed: (index) {
+          print('Tapped index: $index');
+        },
+        selectedColor: Color(0xFF4B48AC),
+        unselectedColor: Color(0xFFC8CDFF),
+        splashColor: Color(0xFF6E66FE),
+      ),
     );
   }
 }

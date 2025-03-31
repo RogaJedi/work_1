@@ -17,21 +17,27 @@ class ProductCarousel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      scrollDirection: Axis.horizontal,
-      itemCount: products.length,
-      itemBuilder: (context, index) {
-        return Center(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ProductCard(
-              product: products[index],
-              apiService: apiService,
-              onCardTap: onCardTap,
+
+    final screenHeight = MediaQuery.of(context).size.height;
+
+    return SizedBox(
+      height: screenHeight * 0.25,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: products.length,
+        itemBuilder: (context, index) {
+          return Center(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ProductCard(
+                product: products[index],
+                apiService: apiService,
+                onCardTap: onCardTap,
+              ),
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }
