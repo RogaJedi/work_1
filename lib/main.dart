@@ -99,7 +99,7 @@ class MyHomePage extends StatelessWidget {
 
 
                     ProductCard(
-                      product: products[4],
+                      product: products[0],
                       apiService: apiService,
                       onCardTap: () => print("card tapped"),
                     )

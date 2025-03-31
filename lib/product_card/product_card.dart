@@ -57,7 +57,6 @@ class ProductCard extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 2,),
-                    //160-40
                     Padding(
                       padding: EdgeInsets.only(left: screenWidth * 0.045, right: screenWidth * 0.045),
                       child: SizedBox(
@@ -65,8 +64,8 @@ class ProductCard extends StatelessWidget {
                         child: FittedBox(
                           fit: BoxFit.scaleDown,
                           alignment: Alignment.centerLeft,
-                          child: Container(
-                            width: MediaQuery.of(context).size.width - screenWidth * 0.09, // Account for padding
+                          child: SizedBox(
+                            width: MediaQuery.of(context).size.width - screenWidth * 0.09,
                             child: Text(
                               product.name,
                               style: const TextStyle(fontSize: 40),
@@ -83,25 +82,46 @@ class ProductCard extends StatelessWidget {
                       children: [
                         Padding(
                           padding: EdgeInsets.only(left: screenWidth * 0.045),
-                          child: Text(
-                              "${product.price} P",
-                            style: TextStyle(
-                              fontSize: screenWidth * 0.03,
-                            ),
+                          child: SizedBox(
+                            height: screenHeight * 0.02,
+                            child: FittedBox(
+                              fit: BoxFit.scaleDown,
+                              alignment: Alignment.centerLeft,
+                              child: SizedBox(
+                                width: MediaQuery.of(context).size.width - screenWidth * 0.5,
+                                child: Text(
+                                  "${product.price} P",
+                                  style: const TextStyle(fontSize: 40,),
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                            )
                           ),
                         ),
                         Padding(
                             padding: EdgeInsets.only(right: screenWidth * 0.045),
-                            child: Row(
-                              children: [
-                                Icon(Icons.star, color: Color(0xFFf1c232), size: screenWidth * 0.037,),
-                                Text(
-                                    "${product.reviewScore}",
-                                  style: TextStyle(
-                                    fontSize: screenWidth * 0.03,
+                            child: SizedBox(
+                              height: screenHeight * 0.02,
+                              child: FittedBox(
+                                fit: BoxFit.scaleDown,
+                                alignment: Alignment.centerLeft,
+                                child: SizedBox(
+                                  width: MediaQuery.of(context).size.width - screenWidth * 0.9,
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Icon(Icons.star, color: Color(0xFFf1c232), size: screenWidth * 0.037,),
+                                      Text(
+                                        "${product.reviewScore}",
+                                        style: TextStyle(
+                                          fontSize: screenWidth * 0.03,
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
-                              ],
+                              ),
                             )
                         ),
                       ],
@@ -151,3 +171,19 @@ class ProductCard extends StatelessWidget {
     );
   }
 }
+
+
+/*
+child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Icon(Icons.star, color: Color(0xFFf1c232), size: screenWidth * 0.037,),
+                                  Text(
+                                      "${product.reviewScore}",
+                                    style: TextStyle(
+                                      fontSize: screenWidth * 0.03,
+                                    ),
+                                  ),
+                                ],
+                              ),
+ */
