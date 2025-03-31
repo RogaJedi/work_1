@@ -97,17 +97,16 @@ class MyHomePage extends StatelessWidget {
 
 
 
-
+                    /*
                     ProductCard(
                       product: products[0],
                       apiService: apiService,
                       onCardTap: () => print("card tapped"),
                     )
 
+                     */
 
 
-
-                    /*
                     SizedBox(
                       height: 300,
                       child: ProductCarousel(
@@ -116,7 +115,7 @@ class MyHomePage extends StatelessWidget {
                         onCardTap: () => print("card tapped"),
                       ),
                     )
-                     */
+
 
                     /*
                     BigCard(
