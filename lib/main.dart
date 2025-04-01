@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:work_1/api_service.dart';
 import 'package:work_1/big_card/big_card.dart';
 import 'package:work_1/buttons/cancel.dart';
@@ -7,6 +8,9 @@ import 'package:work_1/custom_bottom_bar/custom_bottom_bar.dart';
 import 'package:work_1/product.dart';
 import 'package:work_1/product_card/product_card.dart';
 import 'package:work_1/product_carousel/product_carousel.dart';
+import 'package:work_1/status_track/ST_SM/ST_Bloc.dart';
+import 'package:work_1/status_track/ST_SM/ST_Event.dart';
+import 'package:work_1/status_track/status_track.dart';
 
 
 
@@ -83,7 +87,8 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFEEEEEE),
+      //Color(0xFFEEEEEE)
+      backgroundColor: Colors.white,
       body: Stack(
         children: [
           Center(
@@ -125,6 +130,55 @@ class MyHomePage extends StatelessWidget {
                     )
                      */
 
+                  BlocProvider(
+                    create: (context) => StatusTrackBloc(
+                      apiService: apiService,
+                      orderId: "0",
+                    )..add(InitializeTrackStatus()),
+                    child: Builder(
+                      builder: (context) => Column(
+                        children: [
+                          StatusTrack(
+                            activeTrackColor: Color(0xFF4B48AC),
+                            inactiveTrackColor: Colors.grey,
+                            apiService: apiService,
+                            orderId: "0",
+                          ),
+                          SizedBox(height: 30),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              ElevatedButton(
+                                onPressed: () {
+                                  context.read<StatusTrackBloc>().add(UpdateTrackStatus(0));
+                                },
+                                child: Text('Status 0'),
+                              ),
+                              ElevatedButton(
+                                onPressed: () {
+                                  context.read<StatusTrackBloc>().add(UpdateTrackStatus(1));
+                                },
+                                child: Text('Status 1'),
+                              ),
+                              ElevatedButton(
+                                onPressed: () {
+                                  context.read<StatusTrackBloc>().add(UpdateTrackStatus(2));
+                                },
+                                child: Text('Status 2'),
+                              ),
+                              ElevatedButton(
+                                onPressed: () {
+                                  context.read<StatusTrackBloc>().add(UpdateTrackStatus(3));
+                                },
+                                child: Text('Status 3'),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+
 
 
 
@@ -133,6 +187,7 @@ class MyHomePage extends StatelessWidget {
           )
         ],
       ),
+      /*
       bottomNavigationBar: CustomBottomBar(
         icons: const [
           Icons.home,
@@ -147,6 +202,8 @@ class MyHomePage extends StatelessWidget {
         unselectedColor: Color(0xFFC8CDFF),
         splashColor: Color(0xFF6E66FE),
       ),
+
+       */
     );
   }
 }
