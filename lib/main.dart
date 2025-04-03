@@ -5,6 +5,7 @@ import 'package:work_1/big_card/big_card.dart';
 import 'package:work_1/buttons/cancel.dart';
 import 'package:work_1/buttons/confirm.dart';
 import 'package:work_1/custom_bottom_bar/custom_bottom_bar.dart';
+import 'package:work_1/custom_notification/custom_notification.dart';
 import 'package:work_1/product.dart';
 import 'package:work_1/product_card/product_card.dart';
 import 'package:work_1/product_carousel/product_carousel.dart';
@@ -96,46 +97,6 @@ class MyHomePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
 
-                    Column(
-                      children: [
-                        Cancel(color: Colors.grey, icon: Icons.cancel_outlined, onPressed: () => print("button pressed"),),
-                        SizedBox(height: 10,),
-                        Confirm(color: Color(0xFF6E66FE), text: "Подтвердить", height: 55, width: 400, onPressed: () => print("button pressed"),),
-                      ],
-                    ),
-                  SizedBox(height: 20,),
-                  ElevatedButton(
-                    child: Text('Show Alert'),
-                    onPressed: () {
-                      showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return AlertDialog(
-                            title: Text('Alert Title'),
-                            content: Container(
-                              width: MediaQuery.of(context).size.width * 0.7,
-                              height: MediaQuery.of(context).size.height * 0.5,
-                              child: Stack(
-                                children: [
-                                  Positioned(
-                                    bottom: 10,
-                                      child: Confirm(
-                                        color: Color(0xFF6E66FE),
-                                        text: "Подтвердить",
-                                        height: 55,
-                                        width: 400,
-                                        onPressed: () => print("button pressed"),
-                                      )
-                                  )
-                                ],
-                              ),
-                            ),
-                          );
-                        },
-                      );
-                    },
-                  )
-
                   /*
                     ProductCard(
                       product: products[0],
@@ -210,11 +171,64 @@ class MyHomePage extends StatelessWidget {
                       ),
                     ),
                   ),
-
                    */
 
 
+                  /*
+                  Column(
+                    children: [
+                      Cancel(color: Colors.grey, icon: Icons.cancel_outlined, onPressed: () => print("button pressed"),),
+                      SizedBox(height: 10,),
+                      Confirm(color: Color(0xFF6E66FE), text: "Подтвердить", height: 55, width: 400, onPressed: () => print("button pressed"),),
+                    ],
+                  ),
+                  SizedBox(height: 20,),
+                  ElevatedButton(
+                    child: Text('Show Alert'),
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: Text('Alert Title'),
+                            content: Container(
+                              width: MediaQuery.of(context).size.width * 0.7,
+                              height: MediaQuery.of(context).size.height * 0.5,
+                              child: Stack(
+                                children: [
+                                  Positioned(
+                                      bottom: 10,
+                                      child: Confirm(
+                                        color: Color(0xFF6E66FE),
+                                        text: "Подтвердить",
+                                        height: 55,
+                                        width: 400,
+                                        onPressed: () => print("button pressed"),
+                                      )
+                                  )
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      );
+                    },
+                  )
+                   */
 
+                  ElevatedButton(
+                    onPressed: () {
+                      CustomNotification.show(
+                        context,
+                        message: "Success",
+                        type: NotificationType.success,
+                        closeTime: 5,
+                        showCloseButton: true,
+                        onTap: () => print("tapped")
+                      );
+                    },
+                    child: Text('Show Notification'),
+                  )
 
                 ],
               )
