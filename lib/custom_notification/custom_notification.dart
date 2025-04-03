@@ -90,7 +90,7 @@ class CustomNotification extends StatelessWidget {
 
                     if (closeTime > 0)
                       TweenAnimationBuilder(
-                        tween: Tween(begin: 0.0, end: 1.0),
+                        tween: Tween(begin: 1.0, end: 0.0),
                         duration: Duration(seconds: closeTime.round()),
                         builder: (context, double value, _) {
                           return Stack(
@@ -106,7 +106,7 @@ class CustomNotification extends StatelessWidget {
                                 },
                               ),
                               Positioned(
-                                left: 0,
+                                right: 0,
                                 child: Container(
                                   width: constraints.maxWidth * (1 - value),
                                   height: screenHeight * 0.1,
@@ -195,170 +195,3 @@ class CustomNotification extends StatelessWidget {
     );
   }
 }
-
-/*
-Padding(
-                          padding: EdgeInsets.only(
-                              left: screenWidth * 0.03,
-                              right: screenWidth * 0.03
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              SizedBox(
-                                height: screenHeight * 0.06,
-                                width: screenHeight * 0.06,
-                                child: Icon(
-                                  switch (type) {
-                                    'success' => Icons.check,
-                                    'error' => Icons.warning_amber,
-                                    'warning' => Icons.warning_amber,
-                                    'info' => Icons.warning_amber,
-                                    _ => Icons.warning_amber
-                                  },
-                                  color: Colors.white,
-                                  size: screenHeight * 0.04,
-                                ),
-                              ),
-                              SizedBox(
-                                height: screenHeight * 0.06,
-                                width: screenWidth * 0.55,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    DefaultTextStyle(
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: screenHeight * 0.03,
-                                      ), child: Text(message),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              SizedBox(
-                                height: screenHeight * 0.06,
-                                width: screenHeight * 0.06,
-                                child: showCloseButton
-                                    ? IconButton(
-                                  icon: Icon(
-                                    Icons.close,
-                                    color: Colors.white,
-                                    size: screenHeight * 0.04,
-                                  ),
-                                  onPressed: notificationCubit.hideNotification,
-                                )
-                                    : null,
-                              ),
-                            ],
-                          ),
-                        )
- */
-
-/*
-Widget build(BuildContext context) {
-
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-
-    final notificationCubit = context.read<CustomNotificationCubit>();
-
-    return LayoutBuilder(
-        builder: (context, constraints) {
-          return GestureDetector(
-            onTap: onTap,
-            child: Padding(
-              padding: EdgeInsets.all(screenWidth * 0.02),
-              child: Stack(
-                children: [
-                  Container(
-                      width: constraints.maxWidth,
-                      height: screenHeight * 0.1,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          color: switch (type) {
-                            'success' => Colors.green,
-                            'error' => Colors.red,
-                            'warning' => Colors.orangeAccent,
-                            'info' => Colors.blue,
-                            _ => Colors.grey
-                          }
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.only(
-                            left: screenWidth * 0.03,
-                            right: screenWidth * 0.03
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            SizedBox(
-                              height: screenHeight * 0.06,
-                              width: screenHeight * 0.06,
-                              child: Icon(
-                                switch (type) {
-                                  'success' => Icons.check,
-                                  'error' => Icons.warning_amber,
-                                  'warning' => Icons.warning_amber,
-                                  'info' => Icons.warning_amber,
-                                  _ => Icons.warning_amber
-                                },
-                                color: Colors.white,
-                                size: screenHeight * 0.04,
-                              ),
-                            ),
-                            SizedBox(
-                              height: screenHeight * 0.06,
-                              width: screenWidth * 0.55,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  DefaultTextStyle(
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: screenHeight * 0.03,
-                                    ), child: Text(message),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              height: screenHeight * 0.06,
-                              width: screenHeight * 0.06,
-                              child: showCloseButton
-                                  ? IconButton(
-                                icon: Icon(
-                                  Icons.close,
-                                  color: Colors.white,
-                                  size: screenHeight * 0.04,
-                                ),
-                                onPressed: notificationCubit.hideNotification,
-                              )
-                                  : null,
-                            ),
-                          ],
-                        ),
-                      )
-                  ),
-                  if (closeTime > 0)
-                    TweenAnimationBuilder(
-                      tween: Tween(begin: 1.0, end: 0.0),
-                      duration: Duration(seconds: closeTime.round()),
-                      builder: (context, double value, _) {
-                        return Container(
-                          width: constraints.maxWidth * value,
-                          height: screenHeight * 0.1,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            color: Colors.black.withValues(alpha: 0.3),
-                          ),
-                        );
-                      },
-                    ),
-                ],
-              )
-            ),
-          );
-        }
-    );
-  }
- */
