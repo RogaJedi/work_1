@@ -95,15 +95,47 @@ class MyHomePage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  /*
+
                     Column(
                       children: [
-                        Cancel(color: Color(0xFF000118), text: "Отмена", onPressed: () => print("button pressed"),),
+                        Cancel(color: Colors.grey, icon: Icons.cancel_outlined, onPressed: () => print("button pressed"),),
                         SizedBox(height: 10,),
-                        Confirm(color: Color(0xFF6E66FE), text: "Подтвердить", onPressed: () => print("button pressed"),),
+                        SizedBox(
+                            height: 60,
+                            child: Confirm(color: Color(0xFF6E66FE), text: "Подтвердить", onPressed: () => print("button pressed"),)
+                        ),
                       ],
-                    )
-                     */
+                    ),
+                  SizedBox(height: 20,),
+                  ElevatedButton(
+                    child: Text('Show Alert'),
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: Text('Alert Title'),
+                            content: Container(
+                              width: 200,
+                              height: 400,
+                              child: Stack(
+                                children: [
+                                  Positioned(
+                                    bottom: 10,
+                                      child: Confirm(
+                                        color: Color(0xFF6E66FE),
+                                        text: "Подтвердить",
+                                        onPressed: () => print("button pressed"),
+                                      )
+                                  )
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      );
+                    },
+                  )
 
                   /*
                     ProductCard(
@@ -130,6 +162,7 @@ class MyHomePage extends StatelessWidget {
                     )
                      */
 
+                  /*
                   BlocProvider(
                     create: (context) => StatusTrackBloc(
                       apiService: apiService,
@@ -178,6 +211,8 @@ class MyHomePage extends StatelessWidget {
                       ),
                     ),
                   ),
+
+                   */
 
 
 

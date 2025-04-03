@@ -12,32 +12,40 @@ class Confirm extends StatelessWidget {
     required this.onPressed
   });
 
-  //test
-
   @override
   Widget build(BuildContext context) {
-    return Material(
-      elevation: 2.0,
-      color: color,
-      borderRadius: BorderRadius.circular(15.0),
-      child: InkWell(
-        onTap: onPressed,
-        splashColor: Colors.white.withValues(alpha: 0.1),
-        //highlightColor: Colors.white.withValues(alpha: 0.1),
-        borderRadius: BorderRadius.circular(15.0),
-        child: Container(
-          height: 50,
-          width: 200,
-          child: Center(
-              child: Text(
-                text,
-                style: TextStyle(
-                    color: Colors.white
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+
+        final containerWidth = constraints.maxWidth;
+        final containerHeight = constraints.maxHeight;
+
+        return Material(
+          elevation: 2.0,
+          color: color,
+          borderRadius: BorderRadius.circular(15.0),
+          child: InkWell(
+            onTap: onPressed,
+            splashColor: Colors.white.withAlpha(25),
+            borderRadius: BorderRadius.circular(15.0),
+            child: Container(
+
+              height: containerHeight * 0.055,
+              width: containerWidth * 0.4,
+
+              child: Center(
+                child: Text(
+                  text,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: containerWidth * 0.04,
+                  ),
                 ),
-              )
+              ),
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }
