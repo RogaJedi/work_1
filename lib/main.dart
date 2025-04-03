@@ -100,10 +100,7 @@ class MyHomePage extends StatelessWidget {
                       children: [
                         Cancel(color: Colors.grey, icon: Icons.cancel_outlined, onPressed: () => print("button pressed"),),
                         SizedBox(height: 10,),
-                        SizedBox(
-                            height: 60,
-                            child: Confirm(color: Color(0xFF6E66FE), text: "Подтвердить", onPressed: () => print("button pressed"),)
-                        ),
+                        Confirm(color: Color(0xFF6E66FE), text: "Подтвердить", height: 55, width: 400, onPressed: () => print("button pressed"),),
                       ],
                     ),
                   SizedBox(height: 20,),
@@ -116,8 +113,8 @@ class MyHomePage extends StatelessWidget {
                           return AlertDialog(
                             title: Text('Alert Title'),
                             content: Container(
-                              width: 200,
-                              height: 400,
+                              width: MediaQuery.of(context).size.width * 0.7,
+                              height: MediaQuery.of(context).size.height * 0.5,
                               child: Stack(
                                 children: [
                                   Positioned(
@@ -125,6 +122,8 @@ class MyHomePage extends StatelessWidget {
                                       child: Confirm(
                                         color: Color(0xFF6E66FE),
                                         text: "Подтвердить",
+                                        height: 55,
+                                        width: 400,
                                         onPressed: () => print("button pressed"),
                                       )
                                   )
