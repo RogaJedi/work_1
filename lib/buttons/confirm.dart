@@ -5,7 +5,7 @@ class Confirm extends StatelessWidget {
   final String text;
   final double height;
   final double width;
-  final Function() onPressed;
+  final Function() onTap;
 
   const Confirm({
     super.key,
@@ -13,7 +13,7 @@ class Confirm extends StatelessWidget {
     required this.text,
     required this.height,
     required this.width,
-    required this.onPressed
+    required this.onTap
   });
 
   @override
@@ -29,7 +29,7 @@ class Confirm extends StatelessWidget {
       color: color,
       borderRadius: BorderRadius.circular(15.0),
       child: InkWell(
-        onTap: onPressed,
+        onTap: onTap,
         splashColor: Colors.white.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(15.0),
         child: SizedBox(

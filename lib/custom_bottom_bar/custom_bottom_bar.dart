@@ -6,7 +6,7 @@ import 'CBB_SM/CBB_Cubit.dart';
 
 class CustomBottomBar extends StatelessWidget {
   final List<IconData> icons;
-  final Function(int) onPressed;
+  final Function(int) onTap;
   final Color selectedColor;
   final Color unselectedColor;
   final Color splashColor;
@@ -15,7 +15,7 @@ class CustomBottomBar extends StatelessWidget {
   const CustomBottomBar({
     Key? key,
     required this.icons,
-    required this.onPressed,
+    required this.onTap,
     this.selectedColor = Colors.blue,
     this.unselectedColor = Colors.grey,
     this.splashColor = Colors.lightBlueAccent,
@@ -70,7 +70,7 @@ class CustomBottomBar extends StatelessWidget {
               splashColor: splashColor.withValues(alpha: 0.2),
               onTap: () {
                 context.read<CustomBottomBarCubit>().updateIndex(index);
-                onPressed(index);
+                onTap(index);
               },
               child: Container(
                 height: 60,

@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 class Cancel extends StatelessWidget {
   final Color color;
   final IconData icon;
-  final Function() onPressed;
+  final Function() onTap;
 
   const Cancel({
     super.key,
     required this.color,
     required this.icon,
-    required this.onPressed
+    required this.onTap
   });
 
   @override
@@ -22,7 +22,7 @@ class Cancel extends StatelessWidget {
       color: color,
       borderRadius: BorderRadius.circular(10.0),
       child: InkWell(
-        onTap: onPressed,
+        onTap: onTap,
         splashColor: Colors.white.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(15.0),
         child: SizedBox(

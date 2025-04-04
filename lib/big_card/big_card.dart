@@ -4,14 +4,14 @@ class BigCard extends StatelessWidget {
   final String picture;
   final String mainText;
   final String subText;
-  final Function() onCardTap;
+  final Function() onTap;
 
   const BigCard({
     super.key,
     required this.picture,
     required this.mainText,
     required this.subText,
-    required this.onCardTap
+    required this.onTap
   });
 
   @override
@@ -23,7 +23,7 @@ class BigCard extends StatelessWidget {
     return LayoutBuilder(
         builder: (context, constraints) {
           return GestureDetector(
-            onTap: onCardTap,
+            onTap: onTap,
             child: Padding(
               padding: EdgeInsets.all(screenWidth * 0.02),
               child: Container(

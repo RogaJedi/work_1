@@ -10,13 +10,13 @@ import 'PC_SM/PC_Event.dart';
 class ProductCard extends StatelessWidget {
   final Product product;
   final ApiService apiService;
-  final Function() onCardTap;
+  final Function() onTap;
 
   const ProductCard({
     super.key,
     required this.product,
     required this.apiService,
-    required this.onCardTap
+    required this.onTap
   });
 
   @override
@@ -30,7 +30,7 @@ class ProductCard extends StatelessWidget {
           apiService: apiService,
         )..add(CheckFavoriteStatusEvent(productId: product.productId)),
         child: GestureDetector(
-          onTap: onCardTap,
+          onTap: onTap,
           child: Container(
             width: screenWidth * 0.5,
             height: screenHeight * 0.205,
@@ -171,19 +171,3 @@ class ProductCard extends StatelessWidget {
     );
   }
 }
-
-
-/*
-child: Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Icon(Icons.star, color: Color(0xFFf1c232), size: screenWidth * 0.037,),
-                                  Text(
-                                      "${product.reviewScore}",
-                                    style: TextStyle(
-                                      fontSize: screenWidth * 0.03,
-                                    ),
-                                  ),
-                                ],
-                              ),
- */

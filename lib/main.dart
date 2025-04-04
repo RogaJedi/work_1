@@ -243,7 +243,7 @@ class MyHomePage extends StatelessWidget {
                           text: "Подтвердить",
                           height: 55,
                           width: 400,
-                          onPressed: () => print("button pressed")
+                          onTap: () => print("button pressed")
                       )
                   )
 

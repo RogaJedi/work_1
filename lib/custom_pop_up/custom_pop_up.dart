@@ -97,7 +97,7 @@ class CustomPopUp extends StatelessWidget {
               child: Cancel(
                   color: Colors.grey,
                   icon: Icons.close_rounded,
-                  onPressed: onClose
+                  onTap: onClose
               ),
             ),
           ],
