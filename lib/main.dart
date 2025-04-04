@@ -6,6 +6,7 @@ import 'package:work_1/buttons/cancel.dart';
 import 'package:work_1/buttons/confirm.dart';
 import 'package:work_1/custom_bottom_bar/custom_bottom_bar.dart';
 import 'package:work_1/custom_notification/custom_notification.dart';
+import 'package:work_1/custom_pop_up/custom_pop_up.dart';
 import 'package:work_1/product.dart';
 import 'package:work_1/product_card/product_card.dart';
 import 'package:work_1/product_carousel/product_carousel.dart';
@@ -89,7 +90,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       //Color(0xFFEEEEEE)
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFFEEEEEE),
       body: Stack(
         children: [
           Center(
@@ -216,6 +217,7 @@ class MyHomePage extends StatelessWidget {
                   )
                    */
 
+                  /*
                   ElevatedButton(
                     onPressed: () {
                       CustomNotification.show(
@@ -228,6 +230,21 @@ class MyHomePage extends StatelessWidget {
                       );
                     },
                     child: Text('Show Notification'),
+                  )
+                   */
+
+                  CustomPopUp(
+                      picture: "https://media.istockphoto.com/id/1371934584/photo/portrait-of-a-confident-mature-businesswoman-working-in-a-modern-office.jpg?s=612x612&w=0&k=20&c=NF_IO6IEXY3HifRIhRqP0KDFJFdlFwaMwo3zfOOvKnQ=",
+                      mainText: "300 бонусов за регистрацию!",
+                      subText: "Вы можете потратить накопленные вами бонусы на приобретение любых товаров!",
+                      onClose: () => print("close"),
+                      confirmButton: Confirm(
+                          color: Color(0xFF6E66FE),
+                          text: "Подтвердить",
+                          height: 55,
+                          width: 400,
+                          onPressed: () => print("button pressed")
+                      )
                   )
 
                 ],
